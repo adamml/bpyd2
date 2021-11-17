@@ -1,6 +1,8 @@
 from .plot import plot
 
 def axis(xdata=None, ydata=None, zdata=None, strokewidth=0.05):
+    """
+    """
     plot(xdata, [max(ydata), max(ydata)], [min(zdata), min(zdata)], penwidth=strokewidth, penheight=strokewidth, colour=(0, 0, 0, 1))
     plot(xdata, [min(ydata), min(ydata)], [min(zdata), min(zdata)], penwidth=strokewidth, penheight=strokewidth, colour=(0.75, 0.75, 0.75, 1))
     plot(xdata, [((max(ydata) - min(ydata)) / 2) + min(ydata), ((max(ydata) - min(ydata)) / 2) + min(ydata)], [min(zdata), min(zdata)], penwidth=strokewidth, penheight=strokewidth, colour=(0.75, 0.75, 0.75, 1))

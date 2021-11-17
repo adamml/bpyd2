@@ -8,12 +8,12 @@ Welcome to bpyd2's documentation!
 
 A Python library for creating data driven scenes in Blender.
 
-.. automodule:: bpyd2
-   :members:
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+.. automodule:: bpyd2
+   :members:
 
 Indices and tables
 ==================

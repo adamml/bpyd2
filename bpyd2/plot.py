@@ -46,12 +46,12 @@ def plot(xdata, ydata, zdata, xnorm=None, ynorm=None, znorm=None,
         verts += list(map(lambda x, y, z: (x, y-(penwidth/2), z+(penheight/2)), xdata, ydata, zdata))
         verts += list(map(lambda x, y, z: (x, y+(penwidth/2), z+(penheight/2)), xdata, ydata, zdata))
         edges = []
-        faces = list(map(lambda x, sizex=len(xdata): [x, x+1, x+sizex, x+sizex+1], range(0, len(xdata)-1)))
-        faces += list(map(lambda x, sizex=len(xdata): [x+(sizex*2), x+(sizex*2)+1, x+(sizex*3), x+(sizex*3)+1], range(0, len(xdata)-1)))
-        faces += [[1, len(xdata), len(xdata)*2, len(xdata)*3]]
-        faces += [[len(xdata)-1, (len(xdata)*2)-1, (len(xdata)*3)-1, (len(xdata)*4)-1]]
-        faces += list(map(lambda x, sizex=len(xdata): [x, x+1, x+(sizex*2), x+(sizex*2)+1], range(0, len(xdata)-1)))
-        faces += list(map(lambda x, sizex=len(xdata): [x+(sizex), x+(sizex)+1,x+(sizex*3), x+(sizex*3)+1], range(0, len(xdata)-1)))
+        faces = list(map(lambda x, sizex=len(xdata): [x, x+1, x+sizex+1, x+sizex], range(0, len(xdata)-1)))
+        faces += list(map(lambda x, sizex=len(xdata): [x+(sizex*2), x+(sizex*2)+1, x+(sizex*3)+1, x+(sizex*3)], range(0, len(xdata)-1)))
+        faces += [[1, len(xdata), len(xdata)*3, len(xdata)*2]]
+        faces += [[len(xdata)-1, (len(xdata)*2)-1, (len(xdata)*4)-1, (len(xdata)*3)-1]]
+        faces += list(map(lambda x, sizex=len(xdata): [x, x+1, x+(sizex*2)+1, x+(sizex*2)], range(0, len(xdata)-1)))
+        faces += list(map(lambda x, sizex=len(xdata): [x+(sizex), x+(sizex)+1,x+(sizex*3)+1, x+(sizex*3)], range(0, len(xdata)-1)))
         __mesh = bpy.data.meshes.new('foo')
         __mesh.from_pydata(verts, edges, faces)
         __material = bpy.data.materials.new("MaterialName")
