@@ -1,6 +1,7 @@
 # Table of Contents
 
 * [bpyd2](#bpyd2)
+  * [circle](#bpyd2.circle)
   * [clear](#bpyd2.clear)
   * [normalise](#bpyd2.normalise)
   * [plot](#bpyd2.plot)
@@ -12,6 +13,30 @@
 # bpyd2
 
 A module to help with working with data driven Blender scenes
+
+<a id="bpyd2.circle"></a>
+
+#### circle
+
+```python
+def circle(xdata, ydata, zdata, radius, segments=720, colour=(0, 0, 0, 1), name='Foo')
+```
+
+Add a filled circle in the x-y plane to the scene
+
+**Arguments**:
+
+- `xdata` (`int or float`): The x-axis location of the centre point of the circle
+- `ydata` (`int or float`): The y-axis location of the centre point of the circle
+- `zdata` (`int or float`): The z-axis location of the centre point of the circle
+- `radius` (`int or float`): The radius of the circle on the x-y plane
+- `segments` (`int, defaults to 720`): The number of segments to use in calculating the circle
+- `colour` (`tuple, dfaults to (0, 0, 0, 1)`): A tuple giving the RGB value of the colour in which to plot the line, with an opacity value
+- `name` (`str, defaults to 'Foo'`): The name assigned to the returned object
+
+**Returns**:
+
+`bpy.types.Object`: A Blender object containing the mesh to plot
 
 <a id="bpyd2.clear"></a>
 

@@ -1,10 +1,48 @@
 """A module to help with working with data driven Blender scenes"""
 
 import bpy
+import math
+
+def circle(xdata, ydata, zdata, radius, segments=720, colour=(0, 0, 0, 1), name='Foo'):
+    """Add a filled circle in the x-y plane to the scene
+    
+    :param xdata: The x-axis location of the centre point of the circle
+    :type xdata: int or float
+    :param ydata: The y-axis location of the centre point of the circle
+    :type ydata: int or float
+    :param zdata: The z-axis location of the centre point of the circle
+    :type zdata: int or float
+    :param radius: The radius of the circle on the x-y plane
+    :type radius: int or float
+    :param segments: The number of segments to use in calculating the circle
+    :type segments: int, defaults to 720
+    :param colour: A tuple giving the RGB value of the colour in which to plot the line, with an opacity value
+    :type colour: tuple, dfaults to (0, 0, 0, 1)
+    :param name: The name assigned to the returned object
+    :type name: str, defaults to 'Foo'
+    
+    :return: A Blender object containing the mesh to plot
+    :rtype: bpy.types.Object
+    
+    """
+    angles = [(math.pi*2)*(i/segments) for i in range(0, segments)]
+    verts = [[(math.cos(angle)*radius)+x, (math.sin(angle)*radius)+y, z] for angle in angles]
+    verts.append([x, y, z])
+    edges = [[i, i+1] for i in range(segments)]
+    edges.append([segments-1, 0])
+    faces = [[i, i+1, z] for i in range(segments-1)]
+    faces.append([segments-1, 0, z])
+    __mesh = bpy.data.meshes.new(name)
+    __mesh.from_pydata(verts, edges, faces)
+    __material = bpy.data.materials.new("{} Material".format(name))
+    __material.diffuse_color = colour
+    __mesh.materials.append(__material)    
+    __mesh.update()
+    __object = bpy.data.objects.new(name, __mesh)    
+    return __object
 
 def clear(type=['MESH', 'FONT']):
-    """
-    Clear data from a scene
+    """Clear data from a scene
     
         :param type: Blender object classes to clean up. 
         :type type: list of strs, defaults to ["MESH", "FONT"]
