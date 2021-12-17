@@ -2,6 +2,8 @@
 
 A Python library for creating data driven scenes in Blender.
 
+The API is documented [here](bpyd2.md).
+
 ## Pre-requisites
 
   - Python 3.9.2 or greater
@@ -11,4 +13,10 @@ A Python library for creating data driven scenes in Blender.
 
 ## Installation
 
+## Building the documentation
 
+The documentation for the module is generated with pdoc-markdown:
+
+```python
+pydoc-markdown -I . -m bpy2d --render-toc > bpyd2.md
+```
