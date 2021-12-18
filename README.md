@@ -31,7 +31,7 @@ python -m pip install git+https://github.com/adamml/bpyd2.git
 
 ### World marathon majors elevation plots
 
-![World Marathon Majors elevation](./gallery/abbott_wmm.png)
+![World Marathon Majors elevation](./gallery/abott_wmm.png)
 
 ## Building the documentation
 
