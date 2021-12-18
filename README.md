@@ -27,7 +27,9 @@ python -m pip install git+https://github.com/adamml/bpyd2.git
 
 ### Wave heights around Ireland
 
-![Wave heights around Ireland](./gallery/wave_and_weather_buoys.png)
+[]() |
+---- | ----
+![Wave heights around Ireland](./gallery/wave_and_weather_buoys.png) | ./gallery/november_waves.mp4
 
 ### World marathon majors elevation plots
 
